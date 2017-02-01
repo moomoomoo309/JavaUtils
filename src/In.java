@@ -22,7 +22,7 @@ public class In {
         return Input;
     }
 
-    public double[] getDoubleInput(Range range, String... Names) {
+    public double[] getDoubleInput(IRange range, String... Names) {
         double[] Input = new double[Names.length];
         double temp;
         Scanner UserInput = new Scanner(System.in);
@@ -61,7 +61,7 @@ public class In {
         return InputArray;
     }
 
-    public double[] getFrameDoubleInput(JFrame frame, Range range, String... Names) {
+    public double[] getFrameDoubleInput(JFrame frame, IRange range, String... Names) {
         double[] InputArray = new double[Names.length];
         for (int i = 0; i < Names.length; i++)
             while (true) {
@@ -99,7 +99,7 @@ public class In {
         return Input;
     }
 
-    public int[] getIntInput(Range range, String... Names) {
+    public int[] getIntInput(IRange range, String... Names) {
         int[] Input = new int[Names.length];
         int temp;
         Scanner UserInput = new Scanner(System.in);
@@ -155,7 +155,7 @@ public class In {
         return InputArray;
     }
 
-    public int[] getFrameIntInput(JFrame frame, Range range, String... Names) {
+    public int[] getFrameIntInput(JFrame frame, IRange range, String... Names) {
         int[] InputArray = new int[Names.length];
         for (int i = 0; i < Names.length; i++)
             while (true) {
