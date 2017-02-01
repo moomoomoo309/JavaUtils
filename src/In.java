@@ -108,7 +108,7 @@ public class In {
             while (true) {
                 if (UserInput.hasNextInt()) {
                     temp = UserInput.nextInt();
-                    if (range.inRange((double) temp)) {
+                    if (range.inRange(temp)) {
                         Input[i] = temp;
                         break;
                     } else
