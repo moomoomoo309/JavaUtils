@@ -44,12 +44,12 @@ public class MultiRange implements IRange {
 
     @Override
     public int hashCode() {
-        return ranges != null ? ranges.hashCode(): 0;
+        return ranges != null ? ranges.hashCode() : 0;
     }
 
     @Override
     public boolean equals(Object r) {
-        return r instanceof Range ? ranges.size() == 1 && ranges.get(0).equals((Range) r): r instanceof MultiRange && ranges.equals(((MultiRange) r).ranges);
+        return r instanceof Range ? ranges.size() == 1 && ranges.get(0).equals((Range) r) : r instanceof MultiRange && ranges.equals(((MultiRange) r).ranges);
     }
 
     public String toString() {

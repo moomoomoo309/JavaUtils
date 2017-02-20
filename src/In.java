@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class In {
 
-    public double[] getDoubleInput(String... Names) {
+    public static double[] getDoubleInput(String... Names) {
         double[] Input = new double[Names.length];
         Scanner UserInput = new Scanner(System.in);
         for (int i = 0; i < Names.length; i++) {
@@ -22,7 +22,7 @@ public class In {
         return Input;
     }
 
-    public double[] getDoubleInput(IRange range, String... Names) {
+    public static double[] getDoubleInput(IRange range, String... Names) {
         double[] Input = new double[Names.length];
         double temp;
         Scanner UserInput = new Scanner(System.in);
@@ -44,7 +44,7 @@ public class In {
         return Input;
     }
 
-    public double[] getFrameDoubleInput(JFrame frame, String... Names) {
+    public static double[] getFrameDoubleInput(JFrame frame, String... Names) {
         double[] InputArray = new double[Names.length];
         for (int i = 0; i < Names.length; i++)
             while (true) {
@@ -61,7 +61,7 @@ public class In {
         return InputArray;
     }
 
-    public double[] getFrameDoubleInput(JFrame frame, IRange range, String... Names) {
+    public static double[] getFrameDoubleInput(JFrame frame, IRange range, String... Names) {
         double[] InputArray = new double[Names.length];
         for (int i = 0; i < Names.length; i++)
             while (true) {
@@ -81,7 +81,7 @@ public class In {
         return InputArray;
     }
 
-    public boolean[] getBooleanInput(String... Names) {
+    public static boolean[] getBooleanInput(String... Names) {
         boolean[] Input = new boolean[Names.length];
         Scanner UserInput = new Scanner(System.in);
         for (int i = 0; i < Names.length; i++) {
@@ -99,7 +99,7 @@ public class In {
         return Input;
     }
 
-    public int[] getIntInput(IRange range, String... Names) {
+    public static int[] getIntInput(IRange range, String... Names) {
         int[] Input = new int[Names.length];
         int temp;
         Scanner UserInput = new Scanner(System.in);
@@ -108,7 +108,7 @@ public class In {
             while (true) {
                 if (UserInput.hasNextInt()) {
                     temp = UserInput.nextInt();
-                    if (range.inRange(temp)) {
+                    if (range.inRange((double) temp)) {
                         Input[i] = temp;
                         break;
                     } else
@@ -121,7 +121,7 @@ public class In {
         return Input;
     }
 
-    public int[] getIntInput(String... Names) {
+    public static int[] getIntInput(String... Names) {
         int[] Input = new int[Names.length];
         Scanner UserInput = new Scanner(System.in);
         for (int i = 0; i < Names.length; i++) {
@@ -138,7 +138,7 @@ public class In {
         return Input;
     }
 
-    public int[] getFrameIntInput(JFrame frame, String[] Names) {
+    public static int[] getFrameIntInput(JFrame frame, String... Names) {
         int[] InputArray = new int[Names.length];
         for (int i = 0; i < Names.length; i++)
             while (true) {
@@ -155,7 +155,7 @@ public class In {
         return InputArray;
     }
 
-    public int[] getFrameIntInput(JFrame frame, IRange range, String... Names) {
+    public static int[] getFrameIntInput(JFrame frame, IRange range, String... Names) {
         int[] InputArray = new int[Names.length];
         for (int i = 0; i < Names.length; i++)
             while (true) {
@@ -175,7 +175,7 @@ public class In {
         return InputArray;
     }
 
-    public float[] getFloatInput(String... Names) {
+    public static float[] getFloatInput(String... Names) {
         float[] Input = new float[Names.length];
         Scanner UserInput = new Scanner(System.in);
         for (int i = 0; i < Names.length; i++) {
@@ -194,7 +194,7 @@ public class In {
         return Input;
     }
 
-    public String[] getStringInput(String... Names) {
+    public static String[] getStringInput(String... Names) {
         String[] Input = new String[Names.length];
         Scanner UserInput = new Scanner(System.in);
         for (int i = 0; i < Names.length; i++) {
@@ -211,7 +211,7 @@ public class In {
         return Input;
     }
 
-    public String[] getFrameStringInput(String... Names) {
+    public static String[] getFrameStringInput(String... Names) {
         String[] InputArray = new String[Names.length];
         String Data;
         for (int i = 0; i < Names.length; i++) {
@@ -223,23 +223,23 @@ public class In {
         return InputArray;
     }
 
-    public String getMultilineInput() {
+    private static String getMultilineInput() {
         Scanner UserInput = new Scanner(System.in);
         System.out.println("Enter your input, then hit enter twice.");
-        StringBuilder finalInputString = new StringBuilder();
+        String finalInputString = "";
         String Cache;
         while (true) {
             Cache = UserInput.nextLine();
-            if (Cache.length() != 0)
-                finalInputString.append(Cache);
+            if (!Cache.equals(""))
+                finalInputString = finalInputString + Cache;
             else
                 break;
 
         }
-        return finalInputString.toString();
+        return finalInputString;
     }
 
-    public String[] getMultilineInput(boolean array) {
+    public static String[] getMultilineInput(String output, boolean array) {
         // Seriously, why would you put it as false if you can just not put the boolean there?
         if (!array)
             return new String[]{getMultilineInput()};
@@ -250,7 +250,7 @@ public class In {
         String Cache;
         while (true) {
             Cache = UserInput.nextLine();
-            if (Cache.length() != 0)
+            if (!Cache.equals(""))
                 Input.add(Cache);
             else
                 break;
